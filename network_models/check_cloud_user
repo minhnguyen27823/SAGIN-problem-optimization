@@ -1,0 +1,43 @@
+from users import *
+from cloud_model import *
+from io import BytesIO
+
+import imageio
+import numpy as np
+import matplotlib.pyplot as plt
+
+
+cloud_map = get_full_cloud_torch()
+users_pos = simulate_user_mobility(200, 300)
+cloud_map = cloud_map.squeeze().cpu().numpy()
+print(users_pos.shape)
+
+images = []
+
+for i in range(300):
+    fig, ax = plt.subplots()
+    print("alo")
+    im = ax.imshow(cloud_map[:,3500:5000], cmap='Greys_r')
+    ax.axis('off')
+    plt.colorbar(im, ax=ax)  
+    
+    user_x = users_pos[:, i, 0]
+    user_y = users_pos[:, i, 1]
+    
+    ax.scatter(user_x, user_y, c="red", marker="o", s=10, label="Users")
+    ax.legend(loc="upper right")
+    
+    buf = BytesIO()
+    plt.savefig(buf, format='png', bbox_inches='tight', pad_inches=0)
+    buf.seek(0)
+    
+    img = imageio.imread(buf)
+    images.append(img)
+    buf.close()
+    plt.close()  
+
+    _, _, cloud_map = get_clwc_map(cloud_map)
+
+
+imageio.mimsave('cloud_animation.gif', images, duration=0.5)
+print("done gif")

@@ -11,7 +11,7 @@ Framework
 
 <p align="center">
   <img src="assets/HAP_reward.png" width="45%"/>
-  <img src="assets/HAP_reward.png" width="45%"/>
+  <img src="assets/UAVS_reward.png" width="45%"/>
 </p>
 
 

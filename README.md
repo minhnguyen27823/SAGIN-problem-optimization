@@ -1,3 +1,5 @@
+Báo cáo của nhóm nằm trong thư mục Báo cáo nhóm
+
 Run file "satellite/get_sat_data" to get satellite data
 
 Run trainning.ipynb for trainning

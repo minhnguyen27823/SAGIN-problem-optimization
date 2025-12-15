@@ -8,9 +8,12 @@ Framework
 
 ![Framework ](assets/framework.png)
 
-![HAP reward](assets/HAP_reward.png)
 
-![UAVs reward](assets/UAVS_reward.png)
+<p align="center">
+  <img src="assets/HAP_reward.png" width="45%"/>
+  <img src="assets/HAP_reward.png" width="45%"/>
+</p>
+
 
 <p align="center">
   <img src="assets/satellite__final.gif" width="45%"/>
